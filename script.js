@@ -6,18 +6,26 @@ let operator = '';
 let total = '';
 let secondNumToggle = 0;
 
+//experiment
+const cells = document.querySelectorAll('.grid-cell');
+
 
 const displayScreen = document.querySelector('.display');
+
 const displayTextF = document.createElement('p');
+displayScreen.appendChild(displayTextF);
+
 const displayTextN = document.createElement('p');
+displayScreen.appendChild(displayTextN);
+
 const displayOperator = document.createElement('p');
 
 document.querySelector('.container').addEventListener('click', (e) => {
     if (e.target.classList.contains('nmb')) {
         if(secondNumToggle === 0) firstNum += e.target.textContent;
         if(secondNumToggle === 1) secondNum += e.target.textContent;
-        displayScreen.appendChild(displayTextF).textContent = firstNum;
-        displayScreen.appendChild(displayTextN).textContent = secondNum;
+        displayTextF.textContent = firstNum;
+        displayTextN.textContent = secondNum;
     };
 
     if (e.target.classList.contains('operator')) {
@@ -31,7 +39,9 @@ document.querySelector('.container').addEventListener('click', (e) => {
         firstNum = '';
         operator = '';
         secondNum = '';
-        displayScreen.innerHTML = '';
+        displayTextF.textContent = '';
+        displayTextN.textContent = '';
+        displayOperator.textContent = '';
     };
 
     if (e.target.classList.contains('result')) {
@@ -39,7 +49,9 @@ document.querySelector('.container').addEventListener('click', (e) => {
         secondNum = '';
         operator = '';
         secondNumToggle = 0;
-        console.log(firstNum);
+        displayTextF.textContent = firstNum;
+        displayTextN.textContent = '';
+        displayOperator.textContent = '';
     };
 });
 
