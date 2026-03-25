@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+button {
+    all: unset;
+    /*add stuff back*/
+    display: block;
+    cursor: pointer;
+}
+
+.container {
+    outline: 5px solid black;
+    display: grid;
+    grid-template-rows: 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px;
+    grid-template-columns: 75px 75px 75px 75px 75px 75px 75px;
+}
+
+button {
+    outline: 1px solid black;
+    text-align: center;
+    font-weight: 900;
+}
+
+.display {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 7;
+    background-color: grey;
+}
+
+.clear {
+    grid-area: 5 / 2 / 6 / 6;
+    background-color: beige;
+}
+
+/*operator buttons*/
+.divide {
+    grid-area: 5 / 6 / 6 / 7;
+    background-color: lightcoral;
+}
+
+.multiply {
+    grid-area: 6 / 6 / 7 / 7;
+}
+
+.substract {
+    grid-area: 7 / 6 / 8 / 7;
+}
+
+.add {
+    grid-area: 8 / 6 / 9 / 7;
+}
+
+.decimal {
+    grid-area: 9 / 5 / 10 / 6;
+}
+
+.result {
+    grid-area: 9 / 6 / 10 / 7;
+}
+
+/*number buttons*/
+.number7 {
+    grid-area: 6 / 2 / 7 / 3;
+}
+
+.number8 {
+    grid-area: 6 / 3 / 7 / 4;
+}
+
+.number9 {
+    grid-area: 6 / 4 / 7 / 5;
+}
+
+.number4 {
+    grid-area: 7 / 2 / 8 / 3;
+}
+
+.number5 {
+    grid-area: 7 / 3 / 8 / 4;
+}
+
+.number6 {
+    grid-area: 7 / 4 / 8 / 5;
+}
+
+.number1 {
+    grid-area: 8 / 2 / 9 / 3;
+}
+
+.number2 {
+    grid-area: 8 / 3 / 9 / 4;
+}
+
+.number3 { 
+    grid-area: 8 / 4 / 9 / 5;
+}
+
+.number0 {
+    grid-area: 9 / 2 / 10 / 5;
+}
