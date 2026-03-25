@@ -1,10 +1,14 @@
-//put outpit in grid squares
+//firstNum fix
+//stop overflow - stop recieving numbers after given number of numbers
+//only 1 decimal
+//keyboard support
 
 let firstNum = '';
 let secondNum = '';
 let operator = '';
 let total = '';
 let secondNumToggle = 0;
+
 
 //experiment
 const cells = document.querySelectorAll('.grid-cell');
@@ -15,13 +19,16 @@ const displayScreen = document.querySelector('.display');
 const displayTextF = document.createElement('p');
 displayScreen.appendChild(displayTextF);
 
+const displayOperator = document.createElement('p');
+displayScreen.appendChild(displayOperator);
+
 const displayTextN = document.createElement('p');
 displayScreen.appendChild(displayTextN);
 
-const displayOperator = document.createElement('p');
 
 document.querySelector('.container').addEventListener('click', (e) => {
     if (e.target.classList.contains('nmb')) {
+
         if(secondNumToggle === 0) firstNum += e.target.textContent;
         if(secondNumToggle === 1) secondNum += e.target.textContent;
         displayTextF.textContent = firstNum;
@@ -31,7 +38,7 @@ document.querySelector('.container').addEventListener('click', (e) => {
     if (e.target.classList.contains('operator')) {
         operator = e.target.textContent;
         secondNumToggle = 1;
-        displayScreen.appendChild(displayOperator).textContent = operator;
+        displayOperator.textContent = operator;
         console.log(secondNumToggle);
     }
 
@@ -52,6 +59,11 @@ document.querySelector('.container').addEventListener('click', (e) => {
         displayTextF.textContent = firstNum;
         displayTextN.textContent = '';
         displayOperator.textContent = '';
+    };
+
+    if (e.target.classList.contains('decimal')) {
+        if(secondNumToggle === 0 && !firstNum.includes('.')) firstNum += '.';
+        if(secondNumToggle === 1 && !secondNum.includes('.')) secondNum += '.';
     };
 });
 

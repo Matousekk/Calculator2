@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -14,16 +16,28 @@ button {
 }
 
 .container {
-    outline: 5px solid black;
+    box-shadow:
+        0 0 0 4px lightgrey,
+        0 0 0 6px #999;
+    border-radius: 1rem;
     display: grid;
     grid-template-rows: 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px;
     grid-template-columns: 75px 75px 75px 75px 75px 75px 75px;
 }
 
 button {
-    outline: 1px solid black;
+    outline: 1px solid #999;
     text-align: center;
     font-weight: 900;
+    border-radius: 0.5rem;
+    margin: 5px;
+    box-shadow: 0 2px 0 #999;
+    transition: all 0.1s;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0 #999;
 }
 
 .display {
@@ -31,30 +45,46 @@ button {
     grid-row-end: 4;
     grid-column-start: 2;
     grid-column-end: 7;
-    background-color: grey;
+    background-color: lightgrey;
+    outline: 2px solid #999;
+    border-radius: 1rem;
+    text-align: end;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    font-family: 'silkscreen', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50q;
 }
 
 .clear {
     grid-area: 5 / 2 / 6 / 6;
-    background-color: beige;
+    background-image: linear-gradient(to right, white 50%, orange 50%);
+    transition: 0.8s ease-out;
+    background-size: 200%;
+}
+
+.clear:hover {
+    background-position: right;
 }
 
 /*operator buttons*/
 .divide {
     grid-area: 5 / 6 / 6 / 7;
-    background-color: lightcoral;
 }
 
 .multiply {
-    grid-area: 6 / 6 / 7 / 7;
+    grid-area: 6 / 5 / 7 / 7;
 }
 
 .substract {
-    grid-area: 7 / 6 / 8 / 7;
+    grid-area: 7 / 5 / 8 / 7;
 }
 
 .add {
-    grid-area: 8 / 6 / 9 / 7;
+    grid-area: 8 / 5 / 9 / 7;
 }
 
 .decimal {
@@ -63,6 +93,10 @@ button {
 
 .result {
     grid-area: 9 / 6 / 10 / 7;
+}
+
+.divide, .multiply, .substract, .add, .result {
+    background-color: #FFCC00;
 }
 
 /*number buttons*/
