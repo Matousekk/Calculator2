@@ -1,7 +1,6 @@
 //firstNum fix
-//stop overflow - stop recieving numbers after given number of numbers
-//only 1 decimal
 //keyboard support
+//round result numbers, only two decimal numbers
 
 let firstNum = '';
 let secondNum = '';
@@ -28,9 +27,8 @@ displayScreen.appendChild(displayTextN);
 
 document.querySelector('.container').addEventListener('click', (e) => {
     if (e.target.classList.contains('nmb')) {
-
-        if(secondNumToggle === 0) firstNum += e.target.textContent;
-        if(secondNumToggle === 1) secondNum += e.target.textContent;
+        if(secondNumToggle === 0 && firstNum.length < 5) firstNum += e.target.textContent;
+        if(secondNumToggle === 1 && secondNum.length < 5) secondNum += e.target.textContent;
         displayTextF.textContent = firstNum;
         displayTextN.textContent = secondNum;
     };
@@ -49,6 +47,7 @@ document.querySelector('.container').addEventListener('click', (e) => {
         displayTextF.textContent = '';
         displayTextN.textContent = '';
         displayOperator.textContent = '';
+        secondNumToggle = 0;
     };
 
     if (e.target.classList.contains('result')) {
