@@ -1,17 +1,10 @@
-//firstNum fix
 //keyboard support
-//round result numbers, only two decimal numbers
 
 let firstNum = '';
 let secondNum = '';
 let operator = '';
 let total = '';
 let secondNumToggle = 0;
-
-
-//experiment
-const cells = document.querySelectorAll('.grid-cell');
-
 
 const displayScreen = document.querySelector('.display');
 
@@ -37,7 +30,6 @@ document.querySelector('.container').addEventListener('click', (e) => {
         operator = e.target.textContent;
         secondNumToggle = 1;
         displayOperator.textContent = operator;
-        console.log(secondNumToggle);
     }
 
     if (e.target.classList.contains('clear')) {
@@ -79,7 +71,8 @@ function multiply(a, b) {
 };
 
 function divide(a, b) {
-    return Number(a) / Number(b);
+    const result = Number(a) / Number(b);
+    return Number.parseFloat(result).toFixed(2);
 };
 
 function operate(fNum, sign, sNum) {
